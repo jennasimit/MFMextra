@@ -1,5 +1,5 @@
 
-MTFM:::glib.1
+glib.1 <- MTFM:::glib.1
 
 #' @title inverse logit function
 #' @param x value to evaluate inverse logit function at

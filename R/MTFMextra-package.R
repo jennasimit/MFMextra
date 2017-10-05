@@ -5,6 +5,7 @@
 #' @importFrom utils combn write.table
 #' @importFrom mlogitBMA mlogit2logit
 #' @import snpStats
+#' @import Matrix
 #' @import MTFM
 #' @import RcppArmadillo
 NULL
