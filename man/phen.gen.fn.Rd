@@ -26,5 +26,5 @@ phen.gen.fn(beta1 = c(-2.3, 0.2, 0.2), beta2 = c(-2.3, 0.2, 0.2), snpG,
 }
 \value{
 list consisting of G=genotype matrix (rows=indiv, cols=snps), y=vector of case-control status (0=control,1=trait 1 case, 2=trait 2 case)
-beta[1] = log(prev)
+beta\link{1} = log(prev)
 }
