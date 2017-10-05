@@ -16,7 +16,8 @@ Imports:
 	mlogitBMA,
 	snpStats,
 	Matrix,
-	RcppArmadillo
+	RcppArmadillo,
+	GUESSFM
 Suggests:
 	testthat,
 	roxygen2
