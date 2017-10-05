@@ -1,23 +1,26 @@
-Package: MTFMextra
-Title: Specific Analyses for MTFM
-Description: Several specific simulation-based analyses for MTFM are provided here.
-Version: 0.0.0.9000
-Date: 2017-10-05
+Package: MTFMextra 
+Title: Specific Analyses for MTFM package
+Description: Several specific simulation-based analyses are provid here.
+Version: 0.1 
+Date: 2017-10-05 
 Authors@R: c(person("Jenn", "Asimit", role=c("aut","cre"), email = "ja628@cam.ac.uk"),
-	     person("Chris", "Wallace", role=c("aut"), email = "cew54@cam.ac.uk"))				
+	     person("Chris", "Wallace", role=c("aut"), email = "cew54@cam.ac.uk"))
 Maintainer: Jenn Asimit <ja628@cam.ac.uk> 
 Depends: R (>= 3.3.0)
 Imports:
-	MTFM,
-	Rcpp,
-	methods,
-	stats,	
-	utils,
-	mlogitBMA,
+	annotSnpStats,
 	snpStats,
-	Matrix,
+	GUESSFM,
+	methods,
+	mlogitBMA,
+	BMA,
+	Rcpp,
 	RcppArmadillo,
-	GUESSFM
+	parallel,
+	data.table,
+	gtools,
+	fields,
+	dplyr
 Suggests:
 	testthat,
 	roxygen2
@@ -26,3 +29,5 @@ Encoding: UTF-8
 LazyData: true
 LinkingTo: Rcpp, RcppArmadillo
 RoxygenNote: 6.0.1
+Suggests: testthat
+Roxygen: list(markdown = TRUE)
