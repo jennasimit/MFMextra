@@ -1,10 +1,27 @@
 Package: MTFMextra
-Title: What the Package Does (one line, title case)
+Title: Specific Analyses for MTFM
+Description: Several specific simulation-based analyses for MTFM are provided here.
 Version: 0.0.0.9000
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+Date: 2017-10-05
+Authors@R: c(person("Jenn", "Asimit", role=c("aut","cre"), email = "ja628@cam.ac.uk"),
+	     person("Chris", "Wallace", role=c("aut"), email = "cew54@cam.ac.uk"))				
+Maintainer: Jenn Asimit <ja628@cam.ac.uk> 
 Depends: R (>= 3.3.0)
-License: What license is it under?
+Imports:
+	MTFM,
+	Rcpp,
+	methods,
+	stats,	
+	utils,
+	mlogitBMA,
+	snpStats,
+	Matrix,
+	RcppArmadillo
+Suggests:
+	testthat,
+	roxygen2
+License: GPL
 Encoding: UTF-8
 LazyData: true
+LinkingTo: Rcpp, RcppArmadillo
 RoxygenNote: 6.0.1
