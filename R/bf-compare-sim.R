@@ -1,10 +1,5 @@
-library(MTFM)
-library(mlogitBMA)
-library(BMA)
-library(Rcpp)
-library(RcppArmadillo)
 
-source("/home/ja628/scratch/scripts/IL2RA_general_scripts/myglib.R")
+MTFM:::glib.1
 
 #' @title inverse logit function
 #' @param x value to evaluate inverse logit function at
