@@ -12,14 +12,6 @@ Imports:
 	methods,
 	mlogitBMA,
 	BMA,
-	Rcpp,
-	RcppArmadillo,
-	parallel,
-	data.table,
-	MTFM,
-	gtools,
-	fields,
-	dplyr
 Suggests:
 	testthat,
 	roxygen2
