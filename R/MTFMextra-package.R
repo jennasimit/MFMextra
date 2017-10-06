@@ -8,5 +8,4 @@
 #' @import Matrix
 #' @import MTFM
 #' @import RcppArmadillo
-#' @import GUESSFM
 NULL
