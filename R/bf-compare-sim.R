@@ -165,7 +165,7 @@ return(out) # logABF,mod
 #' @param mT1 maximum number of causal variants for trait 1
 #' @param mT2 maximum number of causal variants for trait 2
 #' @export
-#' @return fitted regression model output from log(jointABF) ~ log(ABF1)+log(ABF2)
+#' @return data.frame of multinomial logABFs and logistic logABFs
 bf.compare.fn <- function(sim,msnps,mT1,mT2) {
 
 #' find marginal ABFs for each trait
@@ -193,7 +193,22 @@ tmp <- cbind(bft1t2[ind,],logBF1=bft1[k,1],logBF2=bft2[j,1])
 bfall <- rbind(bfall, tmp)
 }
 }
- 
-model1 <- lm(bfall[,1]~bfall[,"logBF1"]+bfall[,"logBF2"])
-return(model1)
+return(data.frame(BF12=bfall[,1],BF1=bfall[,"logBF1"],BF2=bfall[,"logBF2"])) 
 } 
+
+
+#' @title Relationship between multinomial ABFs and logistic ABFs
+#' @param BFs data.frame of multinomial logABFs BF12 and logistic logABFs
+#' @param Bplot logical, if TRUE plot ABF12 against (log(ABF1)+log(ABF2)
+#' @export
+#' @return fitted regression model R2 and coefficient estimate summaries from log(jointABF) ~ (log(ABF1)+log(ABF2))
+bf.relations.fn <- function(BFs,Bplot=FALSE) {
+b1.b2 <- BFs$BF1 + BFs$BF2
+out <- lm(BFs$BF12~b1.b2)
+R2 <- summary(out)$r.squared
+betas <- summary(out)$coefficients[,1:2]
+output <- c(R2=R2,beta0=betas[1,],beta1=betas[2,])
+if(Bplot) plot(BFs$BF12~b1.b2,pch=20,xlab="log(BF1)+log(BF2)",ylab="log(BF12)",main=paste("N = ",N))
+return(output)
+}
+

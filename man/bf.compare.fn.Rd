@@ -16,7 +16,7 @@ bf.compare.fn(sim, msnps, mT1, mT2)
 \item{mT2}{maximum number of causal variants for trait 2}
 }
 \value{
-fitted regression model output from log(jointABF) ~ log(ABF1)+log(ABF2)
+data.frame of multinomial logABFs and logistic logABFs
 find marginal ABFs for each trait
 find joint ABFs for traits 1 and 2
 }
