@@ -16,6 +16,7 @@ Imports:
 	RcppArmadillo,
 	parallel,
 	data.table,
+	MTFM,
 	gtools,
 	fields,
 	dplyr
