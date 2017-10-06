@@ -1,6 +1,4 @@
 
-glib.1 <- MTFM:::glib.1
-
 #' @title inverse logit function
 #' @param x value to evaluate inverse logit function at
 #' @return value of inverse logit function at x
@@ -106,7 +104,7 @@ abfT1.fn <- function(data1,mT1=3,msnps) {
 mods <- T1modsmat.fn(mT1,msnps)
 colnames(mods) <- msnps
 
-mod1 <- glib.1(x=data1[,-1],y=data1[,1],error="binomial", link="logit",models=mods)
+mod1 <- BMA::glib(x=data1[,-1],y=data1[,1],error="binomial", link="logit",models=mods)
 
 logABF <- mod1$bf$twologB10[,1]*0.5
 
@@ -146,7 +144,7 @@ T1T2mods <- cbind(T1modsrep,T2modsrep)
 T1T2mods1 <- cbind(T1T2mods,1)
 T1T2mods <- T1T2mods1
 
-mod1 <- glib.1(x=m1$data[,(4+s):(4+3*s)],y=m1$data$Y.star,error="binomial", link="logit",models=T1T2mods)
+mod1 <- BMA::glib(x=m1$data[,(4+s):(4+3*s)],y=m1$data$Y.star,error="binomial", link="logit",models=T1T2mods)
 
 logABF <- mod1$bf$twologB10[,1]*0.5
 
