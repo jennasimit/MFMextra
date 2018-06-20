@@ -3,6 +3,22 @@
 #' @return value of inverse logit function at x
 inv.logit.fn <-function(x) return(exp(x)/(1+exp(x)))
 
+#' Convert genotype calls at a SNP to genotype score
+#' @param i SNP index
+#' @param gcalls data.frame of genotype calls where rows are SNPs and columns are individuals
+#' @return genotype score of SNP
+ gen.fn <- function(i,gcalls) {
+  N <- dim(gcalls)[2]
+  G <- numeric(N/3)
+  c1 <- seq(1,N,by=3) #AA
+  c2 <- seq(2,N,by=3) #AB
+  c3 <- seq(3,N,by=3) #BB
+  G[which(gcalls[i,c1]==1)] <- 0
+  G[which(gcalls[i,c2]==1)] <- 1
+  G[which(gcalls[i,c3]==1)] <- 2
+  return(G)
+  }
+
 
 #' @title Convert genotype calls, as output from hapgen2, to a genotype score matrix
 #' @param gcalls data.frame of genotype calls where rows are SNPs and columns are individuals
@@ -16,18 +32,6 @@ convert.fn <- function(gcalls) {
  G <- matrix(0,nrow=m,ncol=N/3)
  rownames(G) <- snames
  colnames(G) <- paste("indiv",1:(N/3),sep="")
-
- gen.fn <- function(i,gcalls) {
-  N <- dim(gcalls)[2]
-  G <- numeric(N/3)
-  c1 <- seq(1,N,by=3) #AA
-  c2 <- seq(2,N,by=3) #AB
-  c3 <- seq(3,N,by=3) #BB
-  G[which(gcalls[i,c1]==1)] <- 0
-  G[which(gcalls[i,c2]==1)] <- 1
-  G[which(gcalls[i,c3]==1)] <- 2
-  return(G)
-  }
 
  Gmat <- apply(matrix(1:m,ncol=1),1,gen.fn,gcalls)
  G <- t(Gmat)
