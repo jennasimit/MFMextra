@@ -9,12 +9,12 @@ This requires map, legend and hap files, which could be obtained from a referenc
 To output only a subset of SNPs, we specify the SNP positions, line-by-line, in the file keep-snps.txt.
 
 ./hapgen2 \
--m ./genetic_map_chr10_combined_b37.txt \ #map file
--l ./IL2RA.impute.legend \ # legend file
--h ./IL2RA.impute.hap \ # hap file
--n 100000 0 \ # 100,000 controls, 0 cases
+-m ./genetic_map_chr10_combined_b37.txt #map file \
+-l ./IL2RA.impute.legend # legend file \
+-h ./IL2RA.impute.hap # hap file \
+-n 100000 0 # 100,000 controls, 0 cases \
 -no_haps_output -no_gens_output \ 
--t ./keep-snps.txt \ # output for subset of SNPs that are listed in this file
--Ne 11418 \ # effective population size; 11418 recommended for CEU
+-t ./keep-snps.txt  # output for subset of SNPs that are listed in this file \
+-Ne 11418 # effective population size; 11418 recommended for CEU \
 -o ./null_100k  # prefix of output files
 
