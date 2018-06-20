@@ -13,7 +13,7 @@ To output only a subset of SNPs, we specify the SNP positions, line-by-line, in 
 -l ./IL2RA.impute.legend # legend file \
 -h ./IL2RA.impute.hap # hap file \
 -n 100000 0 # 100,000 controls, 0 cases \
--no_haps_output -no_gens_output \ 
+-no_haps_output -no_gens_output \
 -t ./keep-snps.txt  # output for subset of SNPs that are listed in this file \
 -Ne 11418 # effective population size; 11418 recommended for CEU \
 -o ./null_100k  # prefix of output files
