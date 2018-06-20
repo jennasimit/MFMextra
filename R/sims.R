@@ -4,6 +4,40 @@
 inv.logit.fn <-function(x) return(exp(x)/(1+exp(x)))
 
 
+#' @title Convert genotype calls, as output from hapgen2, to a genotype score matrix
+#' @param gcalls data.frame of genotype calls where rows are SNPs and columns are individuals
+#' @export
+#' @return genotype score matrix where rows are SNPs and columns are individuals
+convert.fn <- function(gcalls) {
+ N <- dim(gcalls)[2]-5 # number of individuals*3; first 5 cols are snp info
+ m <- dim(gcalls)[1] # number of snps
+ snames <- gcalls[,2]
+ gcalls <- gcalls[,-(1:5)]
+ G <- matrix(0,nrow=m,ncol=N/3)
+ rownames(G) <- snames
+ colnames(G) <- paste("indiv",1:(N/3),sep="")
+
+ gen.fn <- function(i,gcalls) {
+  N <- dim(gcalls)[2]
+  G <- numeric(N/3)
+  c1 <- seq(1,N,by=3) #AA
+  c2 <- seq(2,N,by=3) #AB
+  c3 <- seq(3,N,by=3) #BB
+  G[which(gcalls[i,c1]==1)] <- 0
+  G[which(gcalls[i,c2]==1)] <- 1
+  G[which(gcalls[i,c3]==1)] <- 2
+  return(G)
+  }
+
+ Gmat <- apply(matrix(1:m,ncol=1),1,gen.fn,gcalls)
+ G <- t(Gmat)
+ rownames(G) <- snames
+ colnames(G) <- paste("indiv",1:(N/3),sep="")
+
+  return(G)
+                                }
+
+
 #' @title Generate case-control data with shared controls for traits 1 and 2 
 #' @param beta1 vector of model parameters for trait 1: (log(prevalence),causal variant effects)
 #' @param beta2 vector of model parameters for trait 2: (log(prevalence),causal variant effects)
