@@ -7,8 +7,10 @@ This R package provides the simulation functions used to assess the joint fine-m
 Below is an example of how to use hapgen2 (http://mathgen.stats.ox.ac.uk/genetics_software/hapgen/hapgen2.html) to simulate N0 cases and N1 controls in a gene (IL2RA) on chromosome 10, where we set two causal variants.
 The positions of the causal variants are $c1 and $c2, which have $ORhet1 and $ORhet2 as the respective odds ratios relating the odds of disease in heterozygote carriers of the 
 non-reference allele (this is specified by the '1' following each of $c1 and $c2; '0' indicates with respect to the reference allele) compared to the homozygote reference allele. 
-We assume a multiplicative model so that OR for homozygote disease risk is $OR^2$. For each simulation the causal variants were randomly selected from a certain SNP group.
-This requires map, legend and hap files, which could be obtained from a reference panel (e.g. CEU of 1000 Genomes: ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/) vcf file by usin$
+We assume a multiplicative model so that OR for homozygote disease risk is OR^2. For each simulation the causal variants were randomly selected from a certain SNP group.
+
+This requires map, legend and hap files, which could be obtained from a reference panel (e.g. CEU of 1000 Genomes: ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/) vcf file by 
+using vcftools (https://vcftools.github.io/index.html) with the --IMPUTE option. 
 To output only a subset of SNPs, we specify the SNP positions, line-by-line, in the file keep-snps.txt.
 
 ORhom1=$(bc -l <<< "$ORhet1 ^2")
