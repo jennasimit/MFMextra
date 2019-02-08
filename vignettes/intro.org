@@ -31,7 +31,7 @@
 -->
 <h1>MFM Introduction</h1>
 <font color="grey">
-*Jenn Asimit // [web](http://jennasimit.github.io) // [email](mailto:ja628 at cam.ac.uk)*  
+*Jenn Asimit // [web](http://jennasimit.github.io) // [email](mailto:ja628 at cam.ac.uk)*  \\
 
 *Chris Wallace // [web](http://chr1swallace.github.io) // [email](mailto:cew54 at cam.ac.uk)*
 </font>
