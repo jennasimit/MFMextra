@@ -1,6 +1,6 @@
 #+TITLE: MFMextra: examples of generating simulated data to evaluate MFM
-#+AUTHOR: Jenn Asimit
-#+EMAIL: ja628@cam.ac.uk 
+#+AUTHORS: Jenn Asimit and Chris Wallace
+#+EMAIL: ja628@cam.ac.uk, cew54@cam.ac.uk 
 #+DATE: 2019-02-05 Tue
 #+DESCRIPTION:
 #+KEYWORDS:
@@ -15,8 +15,6 @@
 #+XSLT:
 
 #+latex_header: \usepackage{fullpage} +latex: %\VignetteEngine{knitr::knitr}%\VignetteIndexEntry{MFM Introduction}{\Large 
-#\textbf{Jenn Asimit // \href{http://jennasimit.github.io}{web} // \href{mailto:ja628 at cam.ac.uk}{email}
-#\textbf{Chris Wallace // \href{http://chr1swallace.github.io}{web} // \href{mailto:cew54 at cam.ac.uk}{email}
 
 # ---
 # title: "Introduction"
@@ -34,6 +32,8 @@
 <h1>MFM Introduction</h1>
 <font color="grey">
 *Jenn Asimit // [web](http://jennasimit.github.io) // [email](mailto:ja628 at cam.ac.uk)*  
+
+*Chris Wallace // [web](http://chr1swallace.github.io) // [email](mailto:cew54 at cam.ac.uk)*
 </font>
 #+end_html
 
