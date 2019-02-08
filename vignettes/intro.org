@@ -173,7 +173,7 @@ It is easier to interpret in terms of SNP groups, so next run the following:
 mpp.pp <- MPP.PP.groups.fn(PP$MPP,PP$PP,dis,c("null",target.odds),snpGroups) 
 #+END_SRC
 
-The mpp.pp object is a list with componets:
+The mpp.pp object is a list with components:
 mppGS: matrix of SNP group MPP
 gPP: list of disease SNP group PP matrices
 
