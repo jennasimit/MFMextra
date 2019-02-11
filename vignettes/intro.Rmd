@@ -1,6 +1,10 @@
 ---
 title: "MFMextra: examples of generating simulated data to evaluate MFM"
-author: "Jenn Asimit"
+author: 
+- name: Jenn Asimit
+  email: ja628@cam.ac.uk
+- name: Chris Wallace
+  email:cew54@cam.ac.uk
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
@@ -14,5 +18,87 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
+```
+# Introduction
+
+[MFM](https://github.com/jennasimit/MFM) is a package to simultaneously fine-map (select most likely set of causal variants) multiple related diseases with the 
+same set of controls and share information between them. It relies on output from the package 
+[GUESSFM](https://github.com/chr1swallace/GUESSFM), which fine-maps a single disease via stochastic search in a Bayesian 
+framework using [GUESS](http://www.bgx.org.uk/software/guess.html).
+
+This vignette illustrates how to simulate data of two diseases with shared controls.
+
+# Simulation Example
+
+Genotype and phenotype data of two diseases with shared controls may be simulated using 
+[MFMextra](https://github.com/jennasimit/MFMextra), together with 
+[hapgen2](http://mathgen.stats.ox.ac.uk/genetics_software/hapgen/hapgen2.html) and reference panel data (e.g. 
+[<ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/>][CEU of 1000 Genomes]]. 
+
+First, we need to simulate some null data from which we will sample to generate the two sets of cases with shared 
+controls. The entire genetic region of interest is simulated to maintain the linkage disequilibrium (LD) structure. 
+In running simulations, there are typically some models of interest that are selected based on analysis of the 
+data. For example, in a [previous 
+fine-mapping](https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1005272) of \textit{IL2RA} in a large international sample, several SNP groups were identified as having the 
+majority of the association signals with the autoimmune diseases multiple sclerosis (MS) and type 1 diabetes (T1D). 
+These groups, together with previously identified lead SNPs for other autoimmune diseases (autoimmune thyroid 
+disease (ATD; rs706799), alopecia areata (AA; rs3118470), rheumatoid arthritis (RA; rs10795791), and ulcerative 
+colitis (UC; rs4147359)) will compose models that contribute to the non-negligible posterior probabilities. 
+Therefore, for computational efficiency, we extract these SNPs from the generated data and focus on these in the 
+fine-mapping simulation analysis.
+
+Below is an example of hapgen2 code to simulate the \textit{IL2RA} region based on the [<ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/>][CEU of 1000 Genomes]
+reference panel, where keep-snps.txt would be the list of snp positions that are to be retained.
+
+```
+    ./hapgen2
+    -m ./genetic_map_chr10_combined_b37.txt \
+    -l ./IL2RA.impute.legend \
+    -h ./IL2RA.impute.hap \
+    -n 100000 0 # 100,000 \
+    -no_haps_output -no_gens_output \
+    -t ./keep-snps.txt \
+    -Ne 11418 \
+    -o ./null_100k \
+```
+
+Here is an example where diseases 1 and 2 have two causal variants of which one is shared: both have causal variant rs61839660 in
+group A; disease 1 has additional causal variant rs56382813 in group D; disease 2 has additional causal variant rs11594656 in
+group C. The file null_100k.controls.gen is output from the above hapgen code and needed below.  An example of data output is provided with
+this vignette, where for efficiency the convert.fn step has been run. 
+
+```{r}
+    library(MFMextra)
+    #g0 <- read.table(null_100k.controls.gen,header=FALSE,as.is=TRUE)
+    #Nn <- (dim(g0)[2]-5)/3
+    #snpG <- convert.fn(g0) # convert to a genotype matrix (snp rows, indiv cols)
+    
+# snpG included with MFMextra    
+    dis <- c("AD","AC")
+    c12 <- grep("rs61839660.0.0.0",rownames(snpG)) # A SNP for both diseases
+    c1 <- grep("rs56382813.0.0.0",rownames(snpG))  # D SNP for disease 1
+    c2 <- grep("rs11594656.0.0.0",rownames(snpG))  # C SNP for disease 2
+    
+    causals1.ind <- c(c12,c1)
+    causals2.ind <- c(c12,c2)
+    prev <- 0.1 # prevalence for purpose of method evaluation
+    
+    N0 <- 3000 # disease 1 size
+    N1 <- 3000 # disease 2 size
+    N2 <- 3000 # controls size
+    ND=vector("list",2) # vector of sizes for cases
+    names(ND) <- dis
+    ND[[1]]<-N1
+    ND[[2]]<-N2
+    
+    
+    OR1a <- 1.4 # OR for A, disease 1
+    OR2a <- 1.25  # OR for D, disease 1
+    OR1b <- 1.4 # OR for A, disease 2
+    OR2b <- 1.25  # OR for C, disease 2
+    
+    sim <- phen.gen.fn(beta1=c(log(prev),log(OR1a),log(OR2a)),beta2=c(log(prev),log(OR1b),log(OR2b)),snpG=snpG,N0=N0,N1=N1,N2=N2,causals1.ind,causals2.ind)
+    Gm <- new("SnpMatrix",(sim$G+1)) # snp cols, indivs rows # convert to SnpMatrix format, needed for GUESSFM
+    Gm
 ```
 

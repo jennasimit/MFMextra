@@ -122,7 +122,7 @@ Gm <- new("SnpMatrix",(sim$G+1)) # snp cols, indivs rows # convert to SnpMatrix 
 Gm
 #+END_SRC
 
-Next, we run GUESSFM on each disease with controls and this is our input to MFM.
+
 
 #+begin_src R :ravel :label=GFM
 c0 <- grep("control.",rownames(Gm))
@@ -133,49 +133,8 @@ G1 <- Gm[c(c0,c1),] # SnpMatrix for disease 1 and controls
 G2 <- Gm[c(c0,c2),] # SnpMatrix for disease 2 and	controls
 t1pheno <- c(rep(0,N0),rep(1,N1)) # phenotype vector for disease 1 and	controls
 t2pheno <- c(rep(0,N0),rep(1,N2)) # phenotype vector for disease 2 and  controls
-
-DIRin <- "tmpdirectory" # path to a directory where to save GUESSFM results
-mydir <- paste(DIRin,"/GFMbvs",sep="") # store GUESSFM results in a previously created directory DIRin
-SM2 <- vector("list",2) # collect the GUESSFM output from each disease
-
-  run.bvs(X=G1,Y=t1pheno,tag.r2=.95,nexp=3,nsave=2000,gdir=mydir,wait=TRUE) # run with expected number of causal variants 3 for better mixing 
-  d <- read.snpmod(mydir)
-  load(file.path(mydir,"tags.RData"))
-  dx <- expand.tags(d,tags)
-  best <- best.models(dx,pp.thr=0.0001)
-  abf <- abf.calc(y=t1pheno,x=G1,models=best$str,family="binomial")
-  SM2[[1]] <- abf2snpmod(abf,expected=2,nsnps=854) # find approximate Bayes' factors (ABFs) using expected number of causal variants 2 and the number of SNPs in the region, 854
-
-  run.bvs(X=G2,Y=t2pheno,tag.r2=.95,nexp=3,nsave=2000,gdir=mydir,wait=TRUE)
-  d <- read.snpmod(mydir)
-  load(file.path(mydir,"tags.RData"))
-  dx <- expand.tags(d,tags)
-  best <- best.models(dx,pp.thr=0.0001)
-  abf <- abf.calc(y=t2pheno,x=G2,models=best$str,family="binomial")
-  SM2[[2]] <- abf2snpmod(abf,expected=2,nsnps=854)
-
-names(SM2) <- dis
-
 #+END_SRC
 
-#+begin_src R :ravel :label=MFM
-target.odds <- 1 # could also provide a vector here; this setting corresponds to a 50:50 odds of non-sharing to sharing of causal variants between diseases
-load("IL2RA-snpgroups.RData") # load snpGroups from provided vignettes file
-PP <- PPmarginal.multiple.fn(SM2,dis,thr=0.999,target.odds,tol=0.0001,N0,ND,nsnps=854)
-#+END_SRC
-
-The PP object is a list with components:
-PP, containing the SNP model posterior probabilities for each disease and each target odds 
-MPP, containing the SNP marginal posterior probabilities of inclusion and each target odds
-It is easier to interpret in terms of SNP groups, so next run the following:
-
-#+begin_src R :ravel :label=MPP
-mpp.pp <- MPP.PP.groups.fn(PP$MPP,PP$PP,dis,c("null",target.odds),snpGroups) 
-#+END_SRC
-
-The mpp.pp object is a list with componets:
-mppGS: matrix of SNP group MPP
-gPP: list of disease SNP group PP matrices
 
 # Local Variables:
 # firestarter: (org-ravel-latex-noweb-dispatch)
