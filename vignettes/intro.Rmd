@@ -75,9 +75,9 @@ this vignette, where for efficiency the convert.fn step has been run.
 library(MFMextra)    
 # snpG included with MFMextra    
     dis <- c("AD","AC")
-    c12 <- grep("rs61839660.0.0.0",rownames(snpG)) # A SNP for both diseases
-    c1 <- grep("rs56382813.0.0.0",rownames(snpG))  # D SNP for disease 1
-    c2 <- grep("rs11594656.0.0.0",rownames(snpG))  # C SNP for disease 2
+    c12 <- grep("rs61839660",rownames(snpG)) # A SNP for both diseases
+    c1 <- grep("rs56382813",rownames(snpG))  # D SNP for disease 1
+    c2 <- grep("rs11594656",rownames(snpG))  # C SNP for disease 2
     
     causals1.ind <- c(c12,c1)
     causals2.ind <- c(c12,c2)
