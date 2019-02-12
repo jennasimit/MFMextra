@@ -4,8 +4,8 @@
 \alias{phen.gen.t2null.fn}
 \title{Generate case-control data with shared controls for traits 1 and 2, where trait 2 has no associations in this region}
 \usage{
-phen.gen.t2null.fn(beta1 = c(-2.3, 0.2, 0.2), snpG, N0 = 100, N1 = 100,
-  N2 = 100, causals1.ind)
+phen.gen.t2null.fn(beta1 = c(-2.3, 0.2, 0.2), snpG, N0 = 100,
+  N1 = 100, N2 = 100, causals1.ind)
 }
 \arguments{
 \item{beta1}{vector of model parameters for trait 1: (log(prevalence),causal variant effects)}
@@ -22,4 +22,7 @@ phen.gen.t2null.fn(beta1 = c(-2.3, 0.2, 0.2), snpG, N0 = 100, N1 = 100,
 }
 \value{
 list consisting of G=genotype matrix (rows=indiv, cols=snps), y=vector of case-control status (0=control,1=trait 1 case, 2=trait 2 case)
+}
+\description{
+Generate case-control data with shared controls for traits 1 and 2, where trait 2 has no associations in this region
 }

@@ -12,3 +12,6 @@ abfcalc.format(sim)
 \value{
 list of data.frames for each trait; column 1 gives case-control status (1/0) and remaining columns form a SnpMatrix object
 }
+\description{
+Approximate Bayes' factors (ABFs) for one case-control study
+}

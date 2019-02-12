@@ -20,3 +20,6 @@ data.frame of multinomial logABFs and logistic logABFs
 find marginal ABFs for each trait
 find joint ABFs for traits 1 and 2
 }
+\description{
+Joint Approximate Bayes' factors (ABFs) for two case-control studies with shared controls
+}

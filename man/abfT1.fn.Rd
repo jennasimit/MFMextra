@@ -16,3 +16,6 @@ abfT1.fn(data1, mT1 = 3, msnps)
 \value{
 data.frame of model ABFs (each row is a model): column 1 has ABFs, remaining columns specify inclusion/excusion of SNPs in each model
 }
+\description{
+Approximate Bayes' factors (ABFs) for one case-control study
+}

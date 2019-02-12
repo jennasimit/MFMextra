@@ -14,3 +14,6 @@ bf.relations.fn(BFs, Bplot = FALSE)
 \value{
 fitted regression model R2 and coefficient estimate summaries from log(jointABF) ~ (log(ABF1)+log(ABF2))
 }
+\description{
+Relationship between multinomial ABFs and logistic ABFs
+}

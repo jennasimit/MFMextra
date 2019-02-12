@@ -19,3 +19,6 @@ abf.fn(sim, msnps, mT1, mT2)
 data.frame of joint model ABFs (each row is a model): column 1 has joint ABFs, remaining columns specify inclusion/excusion of SNPs in each joint model
 add column of 1's to the models for the trait2*effect variable
 }
+\description{
+Joint Approximate Bayes' factors (ABFs) for two case-control studies with shared controls
+}

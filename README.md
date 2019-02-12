@@ -1,6 +1,15 @@
-# MTFMextra
+# MFMextra
 
-This R package provides the simulation functions used to assess the joint fine-mapping methods of the MTFM R package.
+This R package provides the simulation functions used to assess the joint fine-mapping methods of the MTM R package.
+
+## Installation
+
+```R
+install.packages("devtools") # if you don't already have the package
+library(devtools)
+install_github("jennasimit/MFMextra")
+```
+
 
 ## Simulation of case-control data for one disease
 

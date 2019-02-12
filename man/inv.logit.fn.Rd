@@ -12,3 +12,6 @@ inv.logit.fn(x)
 \value{
 value of inverse logit function at x
 }
+\description{
+inverse logit function
+}

@@ -14,3 +14,6 @@ T1modsmat.fn(mT1, msnps)
 \value{
 model matrix for SNPs specified in msnps; columns are SNPs, each row corresponds to a model
 }
+\description{
+Generate model matrix of all possible models with maximum specified size
+}
