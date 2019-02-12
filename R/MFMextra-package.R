@@ -1,6 +1,6 @@
-#' MTFMextra
+#' MFMextra
 #'
-#' @name MTFMextra
+#' @name MFMextra
 #' @docType package
 #' @importFrom methods as
 #' @importFrom stats dbinom model.matrix sd terms
@@ -8,4 +8,5 @@
 #' @importFrom mlogitBMA mlogit2logit
 #' @import snpStats
 #' @import MFM
+#' @import GUESSFM
 NULL
