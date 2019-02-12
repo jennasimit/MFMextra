@@ -26,7 +26,7 @@ same set of controls and share information between them. It relies on output fro
 [GUESSFM](https://github.com/chr1swallace/GUESSFM), which fine-maps a single disease via stochastic search in a Bayesian 
 framework using [GUESS](http://www.bgx.org.uk/software/guess.html).
 
-This vignette illustrates how to simulate data of two diseases with shared controls.
+This vignette illustrates how to simulate data of two diseases with shared controls using functions in MFMextra.
 
 # Simulation Example
 
@@ -68,11 +68,11 @@ group C. The file null_100k.controls.gen is output from the above hapgen code an
 this vignette, where for efficiency the convert.fn step has been run. 
 
 ```{r}
-    library(MFMextra)
     #g0 <- read.table(null_100k.controls.gen,header=FALSE,as.is=TRUE)
     #Nn <- (dim(g0)[2]-5)/3
     #snpG <- convert.fn(g0) # convert to a genotype matrix (snp rows, indiv cols)
-    
+
+library(MFMextra)    
 # snpG included with MFMextra    
     dis <- c("AD","AC")
     c12 <- grep("rs61839660.0.0.0",rownames(snpG)) # A SNP for both diseases
