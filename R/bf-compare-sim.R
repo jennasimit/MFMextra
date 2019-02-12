@@ -159,7 +159,7 @@ out <- lm(BFs$BF12~b1.b2)
 R2 <- summary(out)$r.squared
 betas <- summary(out)$coefficients[,1:2]
 output <- c(R2=R2,beta0=betas[1,],beta1=betas[2,])
-if(Bplot) plot(BFs$BF12~b1.b2,pch=20,xlab="log(BF1)+log(BF2)",ylab="log(BF12)",main=paste("N = ",N))
+if(Bplot) plot(BFs$BF12~b1.b2,pch=20,xlab="log(BF1)+log(BF2)",ylab="log(BF12)",main="")
 return(output)
 }
 

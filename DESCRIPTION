@@ -10,13 +10,12 @@ Depends: R (>= 3.3.0)
 Imports:
 	GUESSFM,
 	MFM,
+	methods,
         cowplot,
 	snpStats,
-	methods,
 	mlogitBMA,
 	BMA,
 Suggests:
-	testthat,
 	roxygen2,
     knitr,
     rmarkdown

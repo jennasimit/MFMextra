@@ -57,7 +57,6 @@ convert.fn <- function(gcalls) {
 #' @author Jenn Asimit
 #' @return list consisting of G=genotype matrix (rows=indiv, cols=snps), y=vector of case-control status (0=control,1=trait 1 case, 2=trait 2 case)
 phen.gen.fn <-function(beta1=c(-2.3,.2,.2),beta2=c(-2.3,.2,.2),snpG,N0=100,N1=100,N2=100,causals1.ind,causals2.ind) {
-#' beta[1] = log(prev)
  N <-dim(snpG)[2] # number of indivs
  n0=0
  n1=0
