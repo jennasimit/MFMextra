@@ -22,3 +22,6 @@ add column of 1's to the models for the trait2*effect variable
 \description{
 Joint Approximate Bayes' factors (ABFs) for two case-control studies with shared controls
 }
+\author{
+Jenn Asimit
+}

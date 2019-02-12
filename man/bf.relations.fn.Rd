@@ -17,3 +17,6 @@ fitted regression model R2 and coefficient estimate summaries from log(jointABF)
 \description{
 Relationship between multinomial ABFs and logistic ABFs
 }
+\author{
+Jenn Asimit
+}

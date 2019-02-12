@@ -31,3 +31,6 @@ beta\link{1} = log(prev)
 \description{
 Generate case-control data with shared controls for traits 1 and 2
 }
+\author{
+Jenn Asimit
+}

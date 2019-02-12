@@ -7,6 +7,7 @@ inv.logit.fn <-function(x) return(exp(x)/(1+exp(x)))
 #' @param i SNP index
 #' @param gcalls data.frame of genotype calls where rows are SNPs and columns are individuals
 #' @return genotype score of SNP
+#' @author Jenn Asimit
  gen.fn <- function(i,gcalls) {
   N <- dim(gcalls)[2]
   G <- numeric(N/3)
@@ -23,6 +24,7 @@ inv.logit.fn <-function(x) return(exp(x)/(1+exp(x)))
 #' @title Convert genotype calls, as output from hapgen2, to a genotype score matrix
 #' @param gcalls data.frame of genotype calls where rows are SNPs and columns are individuals
 #' @export
+#' @author Jenn Asimit
 #' @return genotype score matrix where rows are SNPs and columns are individuals
 convert.fn <- function(gcalls) {
  N <- dim(gcalls)[2]-5 # number of individuals*3; first 5 cols are snp info
@@ -52,6 +54,7 @@ convert.fn <- function(gcalls) {
 #' @param causals1.ind indices of trait 1 causal variants with respect to snpG 
 #' @param causals2.ind indices of trait 2 causal variants with respect to snpG 
 #' @export
+#' @author Jenn Asimit
 #' @return list consisting of G=genotype matrix (rows=indiv, cols=snps), y=vector of case-control status (0=control,1=trait 1 case, 2=trait 2 case)
 phen.gen.fn <-function(beta1=c(-2.3,.2,.2),beta2=c(-2.3,.2,.2),snpG,N0=100,N1=100,N2=100,causals1.ind,causals2.ind) {
 #' beta[1] = log(prev)
@@ -97,6 +100,7 @@ colnames(G) <- rownames(snpG)
 #' @param N2 number of cases for trait 2
 #' @param causals1.ind indices of trait 1 causal variants with respect to snpG
 #' @export
+#' @author Jenn Asimit
 #' @return list consisting of G=genotype matrix (rows=indiv, cols=snps), y=vector of case-control status (0=control,1=trait 1 case, 2=trait 2 case)
 phen.gen.t2null.fn <- function (beta1 = c(-2.3, 0.2, 0.2), snpG, N0 = 100, N1 = 100, N2 = 100, causals1.ind) {    
     N <- dim(snpG)[2]

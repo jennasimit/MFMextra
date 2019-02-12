@@ -19,3 +19,6 @@ data.frame of model ABFs (each row is a model): column 1 has ABFs, remaining col
 \description{
 Approximate Bayes' factors (ABFs) for one case-control study
 }
+\author{
+Jenn Asimit
+}

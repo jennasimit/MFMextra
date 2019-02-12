@@ -26,3 +26,6 @@ list consisting of G=genotype matrix (rows=indiv, cols=snps), y=vector of case-c
 \description{
 Generate case-control data with shared controls for traits 1 and 2, where trait 2 has no associations in this region
 }
+\author{
+Jenn Asimit
+}

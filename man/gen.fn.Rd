@@ -17,3 +17,6 @@ genotype score of SNP
 \description{
 Convert genotype calls at a SNP to genotype score
 }
+\author{
+Jenn Asimit
+}

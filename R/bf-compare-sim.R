@@ -45,6 +45,7 @@ return(list(data1.1,data1.2))
 #' @param mT1 maximum number of causal variants
 #' @param msnps vector of SNPs to consider in models
 #' @export
+#' @author Jenn Asimit
 #' @return data.frame of model ABFs (each row is a model): column 1 has ABFs, remaining columns specify inclusion/excusion of SNPs in each model
 abfT1.fn <- function(data1,mT1=3,msnps) {
 
@@ -69,6 +70,7 @@ return(out)
 #' @param mT1 maximum number of causal variants for trait 1
 #' @param mT2 maximum number of causal variants for trait 2
 #' @export
+#' @author Jenn Asimit
 #' @return data.frame of joint model ABFs (each row is a model): column 1 has joint ABFs, remaining columns specify inclusion/excusion of SNPs in each joint model
 abf.fn <- function(sim,msnps,mT1,mT2) {
 
@@ -112,6 +114,7 @@ return(out) # logABF,mod
 #' @param mT1 maximum number of causal variants for trait 1
 #' @param mT2 maximum number of causal variants for trait 2
 #' @export
+#' @author Jenn Asimit
 #' @return data.frame of multinomial logABFs and logistic logABFs
 bf.compare.fn <- function(sim,msnps,mT1,mT2) {
 
@@ -148,6 +151,7 @@ return(data.frame(BF12=bfall[,1],BF1=bfall[,"logBF1"],BF2=bfall[,"logBF2"]))
 #' @param BFs data.frame of multinomial logABFs BF12 and logistic logABFs
 #' @param Bplot logical, if TRUE plot ABF12 against (log(ABF1)+log(ABF2)
 #' @export
+#' @author Jenn Asimit
 #' @return fitted regression model R2 and coefficient estimate summaries from log(jointABF) ~ (log(ABF1)+log(ABF2))
 bf.relations.fn <- function(BFs,Bplot=FALSE) {
 b1.b2 <- BFs$BF1 + BFs$BF2
