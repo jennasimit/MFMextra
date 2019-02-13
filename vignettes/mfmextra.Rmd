@@ -33,13 +33,13 @@ This vignette illustrates how to simulate data of two diseases with shared contr
 Genotype and phenotype data of two diseases with shared controls may be simulated using 
 [MFMextra](https://github.com/jennasimit/MFMextra), together with 
 [hapgen2](http://mathgen.stats.ox.ac.uk/genetics_software/hapgen/hapgen2.html) and reference panel data (e.g. 
-[<ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/>][CEU of 1000 Genomes]]. 
+[CEU of 1000 Genomes](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/). 
 
 First, we need to simulate some null data from which we will sample to generate the two sets of cases with shared 
 controls. The entire genetic region of interest is simulated to maintain the linkage disequilibrium (LD) structure. 
 In running simulations, there are typically some models of interest that are selected based on analysis of the 
 data. For example, in a [previous 
-fine-mapping](https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1005272) of \textit{IL2RA} in a large international sample, several SNP groups were identified as having the 
+fine-mapping](https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1005272) of IL2RA in a large international sample, several SNP groups were identified as having the 
 majority of the association signals with the autoimmune diseases multiple sclerosis (MS) and type 1 diabetes (T1D). 
 These groups, together with previously identified lead SNPs for other autoimmune diseases (autoimmune thyroid 
 disease (ATD; rs706799), alopecia areata (AA; rs3118470), rheumatoid arthritis (RA; rs10795791), and ulcerative 
@@ -47,8 +47,9 @@ colitis (UC; rs4147359)) will compose models that contribute to the non-negligib
 Therefore, for computational efficiency, we extract these SNPs from the generated data and focus on these in the 
 fine-mapping simulation analysis.
 
-Below is an example of hapgen2 code to simulate the \textit{IL2RA} region based on the [<ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/>][CEU of 1000 Genomes]
-reference panel, where keep-snps.txt would be the list of snp positions that are to be retained.
+Below is an example of hapgen2 code to simulate the IL2RA region based on the [CEU of 1000 
+Genomes](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/) reference panel, where 
+keep-snps.txt would be the list of snp positions that are to be retained.
 
 ```
     ./hapgen2
