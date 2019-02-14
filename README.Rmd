@@ -1,12 +1,9 @@
 # MFMextra
 
 This R package provides the simulation functions used to assess the joint fine-mapping methods of 
-[MFM](https://github.com/jennasimit/MFM).
+[MFM](https://jennasimit.github.io/MFM/).
 
-Run the following to generate the MFMextra website:
-```
-Rscript -e "pkgdown::build_site()"
-```
+Website available at: https://jennasimit.github.io/MFMextra/
 
 ## Installation
 
@@ -27,9 +24,9 @@ disease in heterozygote carriers of the non-reference allele (this is specified 
 multiplicative model so that OR for homozygote disease risk is OR^2. For each simulation the causal variants were 
 randomly selected from a certain SNP group.
 
-This requires map, legend and hap files, which could be obtained from a reference panel (e.g. (CEU of 1000 
-Genomes)[ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/] vcf file by using 
-(vcftools)[https://vcftools.github.io/index.html] with the --IMPUTE option. To output only a subset of SNPs, we specify 
+This requires map, legend and hap files, which could be obtained from a reference panel (e.g. [CEU of 1000 
+Genomes](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/) vcf file by using 
+[vcftools](https://vcftools.github.io/index.html) with the --IMPUTE option. To output only a subset of SNPs, we specify 
 the SNP positions, line-by-line, in the file keep-snps.txt.
 
 ```
@@ -54,10 +51,11 @@ ORhom2=$(bc -l <<< "$ORhet2 ^2")
 
 Below is an example of how to use [hapgen2](http://mathgen.stats.ox.ac.uk/genetics_software/hapgen/hapgen2.html) to 
 simulate 100,000 individuals with no associated SNPs in a gene (IL2RA) on chromosome 10. This requires map, legend and 
-hap files, which could be obtained from a reference panel (e.g. [CEU of 1000 Genomes](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/) vcf file by using vcftools 
-(https://vcftools.github.io/index.html) with the --IMPUTE option. By not specifying the causal variants, the default is 
-to simulate null data. To output only a subset of SNPs, we specify the SNP positions, line-by-line, in the file 
-keep-snps.txt.
+hap files, which could be obtained from a reference panel (e.g. [CEU of 1000 
+Genomes](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/) vcf file by using 
+[vcftools](https://vcftools.github.io/index.html) with the --IMPUTE option. By not specifying the causal variants, the 
+default is to simulate null data. To output only a subset of SNPs, we specify the SNP positions, line-by-line, in the 
+file keep-snps.txt.
 
 ```
 ./hapgen2 \
@@ -69,4 +67,9 @@ keep-snps.txt.
 -t ./keep-snps.txt  # output for subset of SNPs that are listed in this file \
 -Ne 11418 # effective population size; 11418 recommended for CEU \
 -o ./null_100k  # prefix of output files
+```
+
+Run the following to generate the MFMextra website:
+```
+Rscript -e "pkgdown::build_site()"
 ```
