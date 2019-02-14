@@ -86,15 +86,14 @@
 <div id="mfmextra" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#mfmextra" class="anchor"></a>MFMextra</h1></div>
-<p>This R package provides the simulation functions used to assess the joint fine-mapping methods of <a href="https://github.com/jennasimit/MFM">MFM</a>.</p>
-<p>Run the following to generate the MFMextra website:</p>
-<pre><code>Rscript -e "pkgdown::build_site()"</code></pre>
+<p>This R package provides the simulation functions used to assess the joint fine-mapping methods of <a href="https://jennasimit.github.io/MFM/">MFM</a>.</p>
+<p>Website available at: <a href="https://jennasimit.github.io/MFMextra/" class="uri">https://jennasimit.github.io/MFMextra/</a></p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"devtools"</span>) <span class="co"># if you don't already have the package</span></a>
-<a class="sourceLine" id="cb2-2" title="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(devtools)</a>
-<a class="sourceLine" id="cb2-3" title="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"jennasimit/MFMextra"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"devtools"</span>) <span class="co"># if you don't already have the package</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(devtools)</a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"jennasimit/MFMextra"</span>)</a></code></pre></div>
 </div>
 <div id="simulation-of-case-control-data-for-one-disease" class="section level2">
 <h2 class="hasAnchor">
@@ -128,6 +127,8 @@ ORhom2=$(bc -l &lt;&lt;&lt; "$ORhet2 ^2")
 -t ./keep-snps.txt  # output for subset of SNPs that are listed in this file \
 -Ne 11418 # effective population size; 11418 recommended for CEU \
 -o ./null_100k  # prefix of output files</code></pre>
+<p>Run the following to generate the MFMextra website:</p>
+<pre><code>Rscript -e "pkgdown::build_site()"</code></pre>
 </div>
 </div>
   </div>
