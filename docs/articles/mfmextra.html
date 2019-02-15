@@ -88,7 +88,7 @@
                   <a class="author_email" href="mailto:#"></a><a href="mailto:cew54@cam.ac.uk" class="email">cew54@cam.ac.uk</a>
       
                   
-            <h4 class="date">2019-02-14</h4>
+            <h4 class="date">2019-02-15</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/jennasimit/MFMextra/blob/master/vignettes/MFMextra.Rmd"><code>vignettes/MFMextra.Rmd</code></a></small>
       <div class="hidden name"><code>MFMextra.Rmd</code></div>
@@ -97,15 +97,15 @@
 
     
     
-<div id="introduction" class="section level1">
-<h1 class="hasAnchor">
-<a href="#introduction" class="anchor"></a>Introduction</h1>
+<div id="introduction" class="section level2">
+<h2 class="hasAnchor">
+<a href="#introduction" class="anchor"></a>Introduction</h2>
 <p><a href="https://github.com/jennasimit/MFM">MFM</a> is a package to simultaneously fine-map (select most likely set of causal variants) multiple related diseases with the same set of controls and share information between them. It relies on output from the package <a href="https://github.com/chr1swallace/GUESSFM">GUESSFM</a>, which fine-maps a single disease via stochastic search in a Bayesian framework using <a href="http://www.bgx.org.uk/software/guess.html">GUESS</a>.</p>
-<p>This vignette illustrates how to simulate data of two diseases with shared controls using functions in MFMextra.</p>
+<p>This vignette illustrates how to simulate data for two diseases with shared controls using functions in MFMextra.</p>
 </div>
-<div id="simulation-example" class="section level1">
-<h1 class="hasAnchor">
-<a href="#simulation-example" class="anchor"></a>Simulation Example</h1>
+<div id="simulation-example" class="section level2">
+<h2 class="hasAnchor">
+<a href="#simulation-example" class="anchor"></a>Simulation Example</h2>
 <p>Genotype and phenotype data of two diseases with shared controls may be simulated using <a href="https://github.com/jennasimit/MFMextra">MFMextra</a>, together with <a href="http://mathgen.stats.ox.ac.uk/genetics_software/hapgen/hapgen2.html">hapgen2</a> and reference panel data (e.g.  <a href="ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/">CEU of 1000 Genomes</a>.</p>
 <p>First, we need to simulate some null data from which we will sample to generate the two sets of cases with shared controls. The entire genetic region of interest is simulated to maintain the linkage disequilibrium (LD) structure. In running simulations, there are typically some models of interest that are selected based on analysis of the data. For example, in a <a href="https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1005272">previous fine-mapping</a> of IL2RA in a large international sample, several SNP groups were identified as having the majority of the association signals with the autoimmune diseases multiple sclerosis (MS) and type 1 diabetes (T1D). These groups, together with previously identified lead SNPs for other autoimmune diseases (autoimmune thyroid disease (ATD; rs706799), alopecia areata (AA; rs3118470), rheumatoid arthritis (RA; rs10795791), and ulcerative colitis (UC; rs4147359)) will compose models that contribute to the non-negligible posterior probabilities. Therefore, for computational efficiency, we extract these SNPs from the generated data and focus on these in the fine-mapping simulation analysis.</p>
 <p>Below is an example of hapgen2 code to simulate the IL2RA region based on the <a href="ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/">CEU of 1000 Genomes</a> reference panel, where keep-snps.txt would be the list of snp positions that are to be retained.</p>

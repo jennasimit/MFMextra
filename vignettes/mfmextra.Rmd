@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 ```
 ## Introduction
 
-[MFM](https://github.com/jennasimit/MFM) is a package to simultaneously fine-map (select most likely set of causal variants) multiple related diseases with the 
+[MFM](https://jennasimit.github.io/MFM/) is a package to simultaneously fine-map (select most likely set of causal variants) multiple related diseases with the 
 same set of controls and share information between them. It relies on output from the package 
 [GUESSFM](https://github.com/chr1swallace/GUESSFM), which fine-maps a single disease via stochastic search in a Bayesian 
 framework using [GUESS](http://www.bgx.org.uk/software/guess.html).
